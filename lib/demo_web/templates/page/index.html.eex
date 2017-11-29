@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
+  <h3><%= gettext "This tutorial is brought to you by %{company}",
+  company: "PhraseApp" %></h3>
+</div>
+
+<p>
+  <%= ngettext "You have one message", "You have %{count} messages", 1 %>
+</p>
+
+<p>
+  <%= dgettext "system", "Some system output: %{msg}", msg: "debug goes here" %>
+</p>
