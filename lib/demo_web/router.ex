@@ -7,7 +7,7 @@ defmodule DemoWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug SetLocale, gettext: DemoWeb.Gettext, default_locale: "ru"
+    plug DemoWeb.Plugs.Locale
   end
 
   pipeline :api do
@@ -19,15 +19,4 @@ defmodule DemoWeb.Router do
 
     get "/", PageController, :index
   end
-
-  scope "/:locale", DemoWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", DemoWeb do
-  #   pipe_through :api
-  # end
 end
